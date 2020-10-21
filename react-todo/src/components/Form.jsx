@@ -9,7 +9,7 @@ const Form = ({ setInputText, inputText, setTodoItem, todoItems }) => {
     const submitTodoHandler = (e) => {
         e.preventDefault();
 
-        setTodoItem([ ...todoItems, { text: inputText, completed: false }]);
+        setTodoItem([ ...todoItems, { text: inputText, completed: false, id: Math.random() }]);
         setInputText("");
     }
 
