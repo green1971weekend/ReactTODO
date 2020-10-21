@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Form = ({ setInputText, inputText, setTodoItem, todoItems }) => {
+const Form = ({ setInputText, inputText, setTodoItem, todoItems, setStatus }) => {
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
     }
@@ -13,6 +13,10 @@ const Form = ({ setInputText, inputText, setTodoItem, todoItems }) => {
         setInputText("");
     }
 
+    const statusHandler = (e) => {
+        setStatus(e.target.value);
+    }
+
     return (
         <form>
             <input type="text" value={inputText} className="todo-input" onChange={inputTextHandler} placeholder="Add some task here" />
@@ -20,7 +24,7 @@ const Form = ({ setInputText, inputText, setTodoItem, todoItems }) => {
                 <i className="fas fa-plus"></i>
             </button>
             <div className="select">
-                <select name="todos" className="filter-todo">
+                <select name="todos" className="filter-todo" onChange={statusHandler}>
                     <option value="all">All</option>
                     <option value="completed">Completed</option>
                     <option value="uncompleted">Uncompleted</option>

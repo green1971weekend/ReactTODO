@@ -1,14 +1,13 @@
 import React from "react";
 
-const TodoItem = ({value, todo, todoItems, setTodoItem}) => {
+const TodoItem = ({value, todo, todoItems, setTodoItem, filteredTodos}) => {
 
     const deleteHandler = () => {
-        console.log(todoItems);
-        setTodoItem(todoItems.filter(element => element.id !== todo.id));
+        setTodoItem(filteredTodos.filter(element => element.id !== todo.id));
     }
 
     const completeHandler = () => {
-        setTodoItem(todoItems.map((item) => {
+        setTodoItem(filteredTodos.map((item) => {
             if(item.id === todo.id) {
                 return {
                     ...item, completed: !item.completed
